@@ -8,9 +8,9 @@ maven 'maven3.8.2'
 
 }
 
-triggers{
-pollSCM('* * * * *')
-}
+// triggers{
+// pollSCM('* * * * *')
+// }
 
 options{
 timestamps()
