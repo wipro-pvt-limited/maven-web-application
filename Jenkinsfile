@@ -38,7 +38,24 @@ stages{
   docker build -t mithunwebappkareem:1.0.1 .
   """
   }
-  }	
+  }
+  stage('Docker login'){
+  steps{
+  sh  """\
+  #!/bin/bash -l
+  docker login -u shaikfayazz444 -p 8688949515
+  docker tag mithunwebappkareem:1.0.1 shaikfayazz444/kareem:1.0.1
+  """
+  }
+  }
+  stage('Docker push'){
+  steps{
+  sh  """\
+  #!/bin/bash -l
+  docker push shaikfayazz444/kareem:1.0.1
+  """
+  }
+  }
 /*
  stage('ExecuteSonarQubeReport'){
   steps{
