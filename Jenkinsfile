@@ -53,23 +53,23 @@ stages{
   */
 }//Stages Closing
 
-post{
+// post{
 
- success{
- emailext to: 'shaiakfayazz444@gmail.com',
-          subject: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
-          body: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
-          replyTo: 'shaikfayazz444@gmail.com'
- }
+//  success{
+//  emailext to: 'shaiakfayazz444@gmail.com',
+//           subject: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
+//           body: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
+//           replyTo: 'shaikfayazz444@gmail.com'
+//  }
  
- failure{
- emailext to: 'shaikfayazz444@gmail.com',
-          subject: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
-          body: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
-          replyTo: 'shaikfayazz444@gmail.com'
- }
+//  failure{
+//  emailext to: 'shaikfayazz444@gmail.com',
+//           subject: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
+//           body: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
+//           replyTo: 'shaikfayazz444@gmail.com'
+//  }
  
-}
+// }
 
 
 }//Pipeline closing
