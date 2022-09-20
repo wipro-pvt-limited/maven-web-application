@@ -1,3 +1,4 @@
+def version = "${env.BUILD_ID}"
 pipeline{
 
 agent any
@@ -35,7 +36,7 @@ stages{
   steps{
   sh  """\
   #!/bin/bash -l
-  docker build -t mithunwebappkareem:1.0.1 .
+  docker build -t mithunwebappkareem:${version} .
   """
   }
   }
@@ -44,7 +45,7 @@ stages{
   sh  """\
   #!/bin/bash -l
   docker login -u shaikfayazz444 -p 8688949515
-  docker tag mithunwebappkareem:1.0.1 shaikfayazz444/kareem:1.0.1
+  docker tag mithunwebappkareem:${version} shaikfayazz444/kareem:${version}
   """
   }
   }
@@ -52,7 +53,7 @@ stages{
   steps{
   sh  """\
   #!/bin/bash -l
-  docker push shaikfayazz444/kareem:1.0.1
+  docker push shaikfayazz444/kareem:${version}
   """
   }
   }
