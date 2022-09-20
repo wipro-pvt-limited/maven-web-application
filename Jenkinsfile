@@ -33,7 +33,10 @@ stages{
 	
   stage('Docker image build'){
   steps{
-  sh  "docker build -t mithunwebappkareem:1.0.1 ."
+  sh  """\
+  #!/bin/bash -l
+  docker build -t mithunwebappkareem:1.0.1 .
+  """
   }
   }	
 /*
