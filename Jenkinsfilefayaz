@@ -30,7 +30,7 @@ sh "${mavenHome}/bin/mvn deploy"
 stage('DeployAppInto'){
 
 }
-*/
+
 
 stage('SendEmailNotification'){
 
@@ -41,5 +41,6 @@ Thanks&Regards,
 fayaz,
 8688949515.''', cc: 'shaikfayazz444@gmail.com', from: '', replyTo: '', subject: 'Build Over!', to: 'shaikfayazz444@gmail.co '
 }
+*/
 
 }
