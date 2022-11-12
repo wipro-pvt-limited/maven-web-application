@@ -8,7 +8,7 @@ properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKe
 
 stage('CheckOutCode'){
 
-git branch: 'master', credentialsId: '91b283d2-0a83-42a1-8504-38252fbf292a', url: 'https://github.com/wipro-pvt-limited/maven-web-application.git'
+git branch: 'development', credentialsId: '91b283d2-0a83-42a1-8504-38252fbf292a', url: 'https://github.com/wipro-pvt-limited/maven-web-application.git'
 }
 
 stage('Build'){
