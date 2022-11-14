@@ -72,7 +72,11 @@ stage('Docker login'){
 
         docker login -u shaikfayazz444 -p 8688949515
         
+<<<<<<< HEAD
         docker tag tocobell2:${version} shaikfayazz444/ayaan:${version}
+=======
+        docker tag tocobell:${version} shaikfayazz444/ayaan:${version}
+>>>>>>> 1b0bbb75aed9dbace8007defdd89a7cc771ba26b
         
         """
         
@@ -106,7 +110,6 @@ stage('docker push'){
     
     
 } */
-
 
 
 
