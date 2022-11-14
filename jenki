@@ -6,7 +6,7 @@ agent any
 
 tools{
     
-    maven 'maven3.8.3'
+    maven "maven3.8.3"
     
 } // tools
 
@@ -32,8 +32,7 @@ stage('CheckoutCode'){
 
 steps{
 
-git credentialsId: '28f70f33-2db1-46d0-94b8-f0fe4523e251', url: 'https://github.com/wipro-pvt-limited/maven-web-application.git'
-    
+git credentialsId: '28f70f33-2db1-46d0-94b8-f0fe4523e251', url: 'https://github.com/wipro-pvt-limited/maven-web-application.git'    
 }
 
 }
@@ -73,7 +72,7 @@ stage('Docker login'){
 
         docker login -u shaikfayazz444 -p 8688949515
         
-        docker tag wallmart:${version} shaikfayazz444/ayaan:${version}
+        docker tag tocobell:${version} shaikfayazz444/ayaan:${version}
         
         """
         
@@ -107,7 +106,6 @@ stage('docker push'){
     
     
 } */
-
 
 
 
