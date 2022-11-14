@@ -18,6 +18,7 @@ tools{
     properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')
 
  } */ //closing options
+
 /* triggers{
 
     pollSCM('* * * * *')
@@ -31,8 +32,7 @@ stage('CheckoutCode'){
 
 steps{
 
-git credentialsId: '28f70f33-2db1-46d0-94b8-f0fe4523e251', url: 'https://github.com/wipro-pvt-limited/maven-web-application.git'
-    
+git credentialsId: '28f70f33-2db1-46d0-94b8-f0fe4523e251', url: 'https://github.com/wipro-pvt-limited/maven-web-application.git'    
 }
 
 }
@@ -56,7 +56,7 @@ stage('docker image build'){
           #!/bin/bash -l
 
         
-        docker build -t tocobell:${version} .
+        docker build -t tocobell2:${version} .
         
         """
         
@@ -72,7 +72,7 @@ stage('Docker login'){
 
         docker login -u shaikfayazz444 -p 8688949515
         
-        docker tag wallmart:${version} shaikfayazz444/ayaan:${version}
+        docker tag tocobell2:${version} shaikfayazz444/ayaan:${version}
         
         """
         
