@@ -29,7 +29,7 @@ git credentialsId: '28f70f33-2db1-46d0-94b8-f0fe4523e251', url: 'https://github.
 }
 
 stage('Build'){
-    step{
+    steps{
     sh "mvn clean package"
     
     }
@@ -37,7 +37,7 @@ stage('Build'){
 }
 
 stage('Docker Image Build'){
-    step{
+    steps{
         sh  """\
   #!/bin/bash -l
 
