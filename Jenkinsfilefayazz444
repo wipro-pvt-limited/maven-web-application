@@ -1,0 +1,113 @@
+[200~def version ="${env.BUILD_ID}"
+
+pipeline{
+
+agent any
+
+tools{
+    
+        maven "maven3.8.3"
+	    
+	    } // tools
+
+	    /*
+	     options{
+	      
+	          timestamps()
+
+		      properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')
+
+		       } */ //closing options
+
+		       /* triggers{
+
+		           pollSCM('* * * * *')
+			       
+			        } */ //closing triggers
+				 
+				  
+				  stages{
+
+				  stage('CheckoutCode'){
+
+				  steps{
+
+				  git credentialsId: '91b283d2-0a83-42a1-8504-38252fbf292a', url: 'https://github.com/wipro-pvt-limited/maven-web-application.git'
+				  }
+
+				  }
+
+				  stage('Build'){
+
+				  steps{
+
+				  sh "mvn clean package"
+
+				  }
+				  }
+
+				  stage('docker image build'){
+				      
+				          steps{
+					          
+						          sh """\
+							          
+								          
+									            #!/bin/bash -l
+
+										            
+											            docker build -t tocobell:${version} .
+												            
+													            """
+														            
+															        }
+																}
+
+																stage('Docker login'){
+																    
+																        steps{
+																	        
+																		        sh """\
+																			          #!/bin/bash -l
+
+																				          docker login -u shaikfayazz444 -p 8688949515
+																					          
+																						          docker tag wallmart:${version} shaikfayazz444/ayaan:${version}
+																							          
+																								          """
+																									          
+																										      }
+																										          
+																											      
+																											      }
+
+
+																											      stage('docker push'){
+																											          
+																												      steps{
+																												              
+																													              sh """\
+																														              #!/bin/bash -l
+																															             docker push shaikfayazz444/ayaan:${version}
+																																             
+																																	             """
+																																		             
+																																			         }
+																																				 }
+
+																																				 }//stages closing
+																																				 }//pipeline closing
+
+																																				 /*post{
+																																				     
+																																				         success{
+																																					         
+																																						     }
+																																						         
+																																							     
+																																							     } */
+
+
+
+
+
