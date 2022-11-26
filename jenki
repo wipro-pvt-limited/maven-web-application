@@ -118,4 +118,8 @@ stage('docker push'){
 
 //2
 
+<<<<<<< HEAD
 //good morning all,please take updated code.
+=======
+//devteam
+>>>>>>> 055a3e55a62f53514beadd0c7cf7b378c3c75432
