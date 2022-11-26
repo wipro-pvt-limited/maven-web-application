@@ -1,0 +1,89 @@
+def version = "${env.BUILD_ID}"
+
+pipeline{
+
+agent any
+
+tools{
+maven "maven3.8.3"
+}
+/*
+
+options{
+timestam()
+} *\
+/*
+trigers{
+
+poll SCM('* * * * *')
+
+} *\
+stages{
+
+stage('CheckOutCode'){
+steps{
+
+git credentialsId: '28f70f33-2db1-46d0-94b8-f0fe4523e251', url: 'https://github.com/wipro-pvt-limited/maven-web-application.git'
+
+}
+}
+
+stage('Build'){
+    steps{
+    sh "mvn clean package"
+    
+    }
+    
+}
+
+stage('Docker Image Build'){
+    steps{
+        sh  """\
+  #!/bin/bash -l
+
+        
+        docker build -t tocobell3:${version} .
+        
+  """
+    }
+}
+
+stage('Docker Login'){
+    steps{
+    
+    sh """\
+  #!/bin/bash -l
+  
+  docker login -u shaikfayazz444  -p 8688949515
+  docker tag tocobell3:${version} shaikfayazz444/ayaan:${version}
+  
+  """
+    }
+}
+
+stage('Docker push'){
+    steps{
+    sh  """\
+  #!/bin/bash -l
+  
+  docker push shaikfayazz444/ayaan:${version}
+      """
+    }
+}
+}// stages over
+
+post{
+    
+    success{
+        
+        
+    }
+    
+    failure{
+        
+        
+    }
+}//post over
+
+
+}//pipeline over
