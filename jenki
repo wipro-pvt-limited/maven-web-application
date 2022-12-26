@@ -35,6 +35,7 @@ steps{
 git credentialsId: '591422c9-8979-40e4-a6d7-ddba178a2129', url: 'https://github.com/wipro-pvt-limited/maven-web-application.git'}
 
 }
+/*
 
 stage('Build'){
 
@@ -101,7 +102,7 @@ stage('docker push'){
 }//stages closing
 }//pipeline closing
 
-/*post{
+ post{
     
     success{
         
