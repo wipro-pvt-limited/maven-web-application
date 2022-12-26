@@ -23,11 +23,10 @@ stages{
 stage('CheckOutCode'){
 steps{
 
-git credentialsId: '28f70f33-2db1-46d0-94b8-f0fe4523e251', url: 'https://github.com/wipro-pvt-limited/maven-web-application.git'
-
+git credentialsId: '591422c9-8979-40e4-a6d7-ddba178a2129', url: 'https://github.com/wipro-pvt-limited/maven-web-application.git'
 }
 }
-
+/*
 stage('Build'){
     steps{
     sh "mvn clean package"
@@ -83,7 +82,7 @@ post{
         
         
     }
-}//post over
+} *\ //post over
 
 
 }//pipeline over
